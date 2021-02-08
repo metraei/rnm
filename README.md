@@ -22,16 +22,16 @@ nM.round( 123.4567 , 10 ) -- result: 123.5
 #### comma  `( n : number / string )`
 Return a string of numbers with commas, or a number without commas
 ```lua
-nM.round( 123456789 ) -- result: 123,456,789
-nM.round( "123,456,789" ) -- result: 123456789
+nM.comma( 123456789 ) -- result: 123,456,789
+nM.comma( "123,456,789" ) -- result: 123456789
 ```
 
 #### shorten `( n : number, d : number )`
 Return a shorten version of the number
 ```lua
-nM.round( 1234 ) -- result: 1k
-nM.round( 1234, 1 ) -- result: 1.2k
-nM.round( -123456789 , 3 ) -- result: -123.456m
+nM.shorten( 1234 ) -- result: 1k
+nM.shorten( 1234, 1 ) -- result: 1.2k
+nM.shorten( -123456789 , 3 ) -- result: -123.456m
 ```
 
 #### toInt ` ( n : number / string ) `
