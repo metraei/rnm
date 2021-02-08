@@ -1,4 +1,5 @@
 local nM = {}
+
 function nM.random(...)
 	local a={...}
 	for b,c in pairs(a)do if type(c)~='number'then error('Argument '..b..' invalid data type')end end
@@ -15,27 +16,34 @@ function nM.random(...)
 		return math.random(a[d*2-1],a[d*2])
 	end
 end
+
 function nM.round(a,b)
 	if not a then error('Argument 1 missing or nil')end
 	if type(a)~='number'or(b and type(b)~='number')then error('Argument 1 or 2 invalid data type')end
 	return b and math.floor(a*b+0.5)/b or math.floor(a+0.5)
 end
-function nM.comma(a,b)
-	if not a then error('Argument 1 missing or nil')end
-	if not b then
-		if type(a)~='number'then error('Argument 1 invalid data type')end
+
+function nM.comma(a)
+    if not a then error('Argument 1 missing or nil')end
+    if not table.find({'string','number'},type(a)) then error('Arugment 1 invalid data type')end
+	if type(a)=='number'then
 		a=tostring(a)
 		return #a%3==0 and a:reverse():gsub("(%d%d%d)","%1,"):reverse():sub(2)or a:reverse():gsub("(%d%d%d)","%1,"):reverse()
 	else
-		if type(a)~='string'then error('Arugment 1 invalid data type')end
 		return a:gsub(',',''):gsub(', ',''):gsub(' ,',''):gsub(' , ','')
 	end
 end
+
 function nM.shorten(a,f,g)
 	if not a then error('Argument 1 missing or nil')end
 	if type(a)~='number'then error('Argument 1 invalid data type')end
 	if f and (type(f)~='number'or f<0)then error('Argument 2 invalid data type')end
-	if g and type(g)~='boolean'then error('Argument 3 invalid data type') elseif g and type(g)=='boolean'then a*=-1 end
+	if a<0 then
+		g=true
+		a*=-1
+	else
+		g=false
+	end
 	if a<1e3 then return a end
 	local c={{1e3,'k'},{1e6,'m'},{1e8,'b'},{1e12,'t'},{1e15,'q'},{1e18,'Q'},{1e21,'s'},{1e24,'S'},{1e27,'o'},{1e30,'n'},{1e33,'d'},{1e36,'U'},{1e39,'D'}}
 	for d,b in ipairs(c) do
@@ -45,6 +53,7 @@ function nM.shorten(a,f,g)
 		end
 	end
 end
+
 function nM.toInt(...)
 	local a={...}
 	if #a==0 then error('Arguments missing or nil')end
@@ -62,6 +71,7 @@ function nM.toInt(...)
 	end
 	return #b==1 and b[1] or b
 end
+
 function nM.toNum(...)
 	local a={...}
 	if #a==0 then error('Arguments missing or nil')end
@@ -79,4 +89,5 @@ function nM.toNum(...)
 	end
 	return #b==1 and b[1] or b
 end
+
 return nM
