@@ -34,14 +34,14 @@ nM.round( 1234, 1 ) -- result: 1.2k
 nM.round( -123456789 , 3 ) -- result: -123.456m
 ```
 
-### toInt ` ( n : number / string ) `
+#### toInt ` ( n : number / string ) `
 Return a converted number to integer, or the first integer in a string
 ```lua
 nM.toInt( "Lorem ipsum 12.345 dolor sit amet.") -- result: 12
 nM.toInt( 12.345 ) -- result: 12
 ```
 
-### toNum ` ( n : number / string ) `
+#### toNum ` ( n : number / string ) `
 Return the first number in a string, or self
 ```lua
 nM.toNum( "Lorem ipsum 12.345 dolor sit amet.") -- result: 12.345
