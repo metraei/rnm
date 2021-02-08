@@ -12,7 +12,7 @@ nM.random( n1 , n2 , n3 , n4 , ... ) -- result: n1 - n2  or  n3 - n4  or  ...
 ```
 
 #### round `( n : number, g : number )`
-Return a rounded number
+Return a rounded number, or rounded number to the nearest g
 ```lua
 nM.round( 123.4567 ) -- result: 123
 nM.round( 123.9876 ) -- result: 124
