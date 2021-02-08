@@ -1,6 +1,6 @@
-# Roblox Number Module
+# Lua Number Module
 
-Roblox Number Module is a module for working with numbers in Roblox.
+Number Module is a module for working with numbers in Lua.
 
 #### Random `( n : number )`
 Return a random number
